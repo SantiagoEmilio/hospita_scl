@@ -58,4 +58,34 @@ public class Doctorview  extends JFrame{
         add(panelpacientes,BorderLayout.CENTER);
         return panelpacientes;
     }
+    private JPanel componentesMenuLateral() {
+        JPanel menu = new JPanel();
+        menu.setPreferredSize(new Dimension(250, pantalla[1]));
+        menu.setBackground(Color.DARK_GRAY);
+        menu.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+
+        JPanel opciones = new JPanel();
+        opciones.setLayout(new GridLayout(0, 1, 10, 10));
+
+        // Agregamos las opciones del menú con sus acciones
+        opciones.add(op("Consultas del día", e -> System.out.println("Consultas del día")));
+        opciones.add(op("Salas", e -> System.out.println("ppp")));
+        opciones.add(op("Farmacia", e -> System.out.println("Farmacia")));
+        opciones.add(op("Pacientes registrados", e -> System.out.println("Pacientes registrados")));
+        opciones.add(op("Citar en otra área", e -> System.out.println("Citar en otra área")));
+
+        menu.add(opciones);
+        return menu;
+    }
+
+    private JButton op(String texto, java.awt.event.ActionListener actionListener) {
+        JButton boton = new JButton(texto);
+        boton.addActionListener(actionListener);
+        return boton;
+    }
+
 }
