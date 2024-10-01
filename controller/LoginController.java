@@ -1,10 +1,14 @@
 package controller;
 import view.loginview;
+import Backend.validacion;
+import java.util.HashMap;
+import view.Doctorview;
 public class LoginController {
     private loginview loginview;
-
+   private  validacion validacion;
     public LoginController(loginview loginview){
         this.loginview=loginview;
+        this.validacion= validacion;
         initController();
     }
     public void initController() {
@@ -12,5 +16,18 @@ public class LoginController {
     }
 
     private void iniciarsesion() {
+    String usuario=loginview.getEmailField().getText();
+    String password=new String(loginview.getPasswordField().getPassword());
+        HashMap<String,String>respuesta=validacion.validacionar(usuario,password);
+
+        if (!respuesta.isEmpty()){
+            String nombredoctor=respuesta.get("nombre");
+            String especialidad=respuesta.get("especialidad");
+
+            Doctorview  doctorview=new Doctorview(nombredoctor,especialidad);
+            doctorview.setVisible((true));
+
+        }
+
     }
 }
