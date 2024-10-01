@@ -1,5 +1,5 @@
 package view;
-
+import model.databasepaciente;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,9 +8,10 @@ public class Doctorview  extends JFrame{
     private JLabel nombreDoctorLabel;
     private JLabel especialidadLabel;
 
+
     private int[] pantalla = {1300, 800};
 
-    public Doctorview(String nombreDoctor, String especialidad) {
+    public Doctorview(String nombreDoctor, String especialidad,databasepaciente pvc) {
         // Configuración básica del JFrame
         setTitle("Hospital Santa Catalina - Perfil del doctor");
         setSize(pantalla[0], pantalla[1]);
@@ -49,5 +50,12 @@ public class Doctorview  extends JFrame{
         headerPanel.add(doctorInfoPanel, BorderLayout.EAST);
         add(headerPanel, BorderLayout.NORTH);
 
+    }
+    private JPanel pacientes(databasepaciente pvc){
+        ArrayList<databasepaciente>lista=new ArrayList<>(pvc.getPaciente());
+        pacientesview panelpacientes=new pacientesview(lista);
+
+        add(panelpacientes,BorderLayout.CENTER);
+        return panelpacientes;
     }
 }

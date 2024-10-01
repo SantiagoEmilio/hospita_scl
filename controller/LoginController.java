@@ -3,12 +3,15 @@ import view.loginview;
 import Backend.validacion;
 import java.util.HashMap;
 import view.Doctorview;
+import model.databasepaciente;
 public class LoginController {
     private loginview loginview;
    private  validacion validacion;
+   private databasepaciente pvc;
     public LoginController(loginview loginview){
         this.loginview=loginview;
         this.validacion= validacion;
+        this.pvc=new databasepaciente();
         initController();
     }
     public void initController() {
@@ -24,7 +27,7 @@ public class LoginController {
             String nombredoctor=respuesta.get("nombre");
             String especialidad=respuesta.get("especialidad");
 
-            Doctorview  doctorview=new Doctorview(nombredoctor,especialidad);
+            Doctorview  doctorview=new Doctorview(nombredoctor,especialidad,pvc);
             doctorview.setVisible((true));
 
         }
