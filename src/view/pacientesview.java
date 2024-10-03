@@ -1,26 +1,30 @@
-package view;
+package src.view;
+
+import src.model.datapaciente;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import model.databasepaciente;
-import model.datapaciente;
 public class pacientesview extends JPanel {
-    private ArrayList<datapaciente>lista;
-    public pacientesview(ArrayList<databasepaciente> lista){
-        this.lista=lista;
-        pane();
+    private ArrayList<datapaciente> listaPacientes;
+
+    public pacientesview(ArrayList<datapaciente> listaPacientes) {
+        this.listaPacientes = listaPacientes;
+        initPanel();
     }
-    private void pane(){
+
+    private void initPanel() {
         setLayout(new BorderLayout());
+
+        // Título del panel
         JLabel titulo = new JLabel("Listado de pacientes", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 18));
         add(titulo, BorderLayout.NORTH);
 
         // Panel para mostrar los pacientes
         JPanel panelPacientes = new JPanel();
-        panelPacientes.setLayout(new GridLayout(lista.size() + 1, 5)); // +1 for the header
+        panelPacientes.setLayout(new GridLayout(listaPacientes.size() + 1, 5)); // +1 for the header
 
         // Encabezado de la tabla
         panelPacientes.add(new JLabel("Nombre", SwingConstants.CENTER));
@@ -30,7 +34,7 @@ public class pacientesview extends JPanel {
         panelPacientes.add(new JLabel("Teléfono", SwingConstants.CENTER));
 
         // Agregar los pacientes al panel
-        for (datapaciente paciente : lista) {
+        for (datapaciente paciente : listaPacientes) {
             panelPacientes.add(new JLabel(paciente.getNombre(), SwingConstants.CENTER));
             panelPacientes.add(new JLabel(paciente.getDireccion(), SwingConstants.CENTER));
             panelPacientes.add(new JLabel(paciente.getEmail(), SwingConstants.CENTER));
@@ -41,4 +45,5 @@ public class pacientesview extends JPanel {
         add(panelPacientes, BorderLayout.CENTER);
     }
 }
+
 
