@@ -1,8 +1,8 @@
-package view;
+package src.view;
 
 import java.awt.*;
 import java.util.ArrayList;
-import model.salas;
+import  src.model.salas;
 
 import javax.swing.*;
 
@@ -11,7 +11,7 @@ public class salasview extends JPanel {
 
     private salasview(ArrayList<salas>listado){
         this.listado=listado;
-    initpn();
+        initpn();
     }
     public void initpn(){
         setLayout(new GridLayout(3,3));
