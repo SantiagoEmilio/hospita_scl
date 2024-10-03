@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="hospita_scl:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/hospita_scl_jar</output-path>
-    <root id="archive" name="hospita_scl.jar">
-      <element id="module-output" name="hospita_scl" />
-    </root>
-  </artifact>
-</component>
