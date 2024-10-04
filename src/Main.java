@@ -1,6 +1,8 @@
+package src;
+
 import Backend.validacion;
 import view.loginview;
-import controller.LoginController;
+import src.controller.LoginController;
 import javax.swing.*;
 import java.awt.*;
 

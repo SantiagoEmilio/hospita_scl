@@ -1,4 +1,4 @@
-package controller;
+package src.controller;
 import view.loginview;
 import Backend.validacion;
 import java.util.HashMap;
